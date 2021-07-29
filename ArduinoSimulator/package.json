@@ -1,0 +1,12 @@
+{
+  "name": "arduino-simulator",
+  "version": "0.0.0",
+  "description": "ArduinoSimulator",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "mqtt": "^4.2.8"
+  }
+}
