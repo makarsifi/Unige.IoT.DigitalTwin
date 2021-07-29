@@ -91,7 +91,7 @@ function ReadAlertSettingsFile() {
     let data = fs.readFileSync('alertsettings.json');
     let alertsettings = JSON.parse(data);
     console.log('Data read from file alertsettings.json');
-    return alertsettings;
+    return alertsettings; 
 }
 
 // mqtt handlers
