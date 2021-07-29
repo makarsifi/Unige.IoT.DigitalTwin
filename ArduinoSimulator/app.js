@@ -30,4 +30,4 @@ function GenerateRandomArduinoValues() {
 function getRandomArbitrary(min, max) {
     var result = Math.random() * (max - min) + min;
     return result.toFixed(2);
-}
+} 
