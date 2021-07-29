@@ -1,0 +1,79 @@
+
+.bridge {
+    background-image: url('/images/bridge-1.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 600px;
+    padding: 0px;
+}
+
+.map {
+    height: 60%;
+}
+
+.pile-toggle {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
+}
+
+#Pile1 {
+    top: 28%;
+    left: 6%;
+}
+
+#Pile2 {
+    top: 39%;
+    left: 17%;
+}
+
+#Pile3 {
+    top: 66%;
+    left: 51%;
+}
+
+#Pile4 {
+    top: 82%;
+    left: 77%;
+}
+
+.pile-details {
+    display: none;
+    position: absolute;
+    background-color: #202124;
+    border-radius: 10px;
+    color: #ca5d0c;
+    padding: 10px;
+    font-size: 14px;
+    user-select: none;
+}
+
+#PileDetails1 {
+    top: 23%;
+    left: 11%;
+}
+
+#PileDetails2 {
+    top: 34%;
+    left: 22%;
+}
+
+#PileDetails3 {
+    top: 60%;
+    left: 56%;
+}
+
+#PileDetails4 {
+    top: 59%;
+    left: 77%;
+}
+
+.legend {
+    background-color: #202124;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    padding: 10px;
+}

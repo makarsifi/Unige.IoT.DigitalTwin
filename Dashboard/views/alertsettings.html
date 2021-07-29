@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard - San Giorgio</title>
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- Jquery and Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+    <!-- our own css -->
+    <link href="../stylesheets/alertsettings.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">San Giorgio Bridge</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="Home">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Alert Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.google.com/maps?q=san+giorgio+bridge&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjTvc2ti7vxAhWUa8AKHX0WD-QQ_AUoAnoECAEQBA" target="_blank">Location</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bridge Design
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(1)">Design 1</a>
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(2)">Design 2</a>
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(3)">Design 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid pt-4 d-flex">
+        <form action="/savealertsettings" method="post">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="badge-warning">Warning</th>
+                        <th scope="col" class="badge-danger">Danger</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                
+                <tr>
+                    <th scope="row">Pressure (0-600 Kpa)</th>
+                    <td><input type="number" name="pressure.warning" class="form-control" value="<%= pressure.warning %>" /></td>
+                    <td><input type="number" name="pressure.danger" class="form-control" value="<%= pressure.danger %>" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Wind Speed (0-150 m/s)</th>
+                    <td><input type="number" name="wind.warning" class="form-control" value="<%= wind.warning %>" /></td>
+                    <td><input type="number" name="wind.danger" class="form-control" value="<%= wind.danger %>" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Air Temperature (0-150 °C)</th>
+                    <td><input type="number" name="temperature.warning" class="form-control" value="<%= temperature.warning %>" /></td>
+                    <td><input type="number" name="temperature.danger" class="form-control" value="<%= temperature.danger %>" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Air Humidity (0-100 %)</th>
+                    <td><input type="number" name="humidity.warning" class="form-control" value="<%= humidity.warning %>" /></td>
+                    <td><input type="number" name="humidity.danger" class="form-control" value="<%= humidity.danger %>" /></td>
+                </tr>
+                <tr>
+                    <th scope="row">Rain (0-300 mm/day)</th>
+                    <td><input type="number" name="rain.warning" class="form-control" value="<%= rain.warning %>" /></td>
+                    <td><input type="number" name="rain.danger" class="form-control" value="<%= rain.danger %>" /></td>
+                </tr>
+            </table>
+
+            <input id="btnSubmit" type="submit" class="btn btn-primary" value="Save Values"/>
+        </form>
+    </div>
+
+</body>
+</html>

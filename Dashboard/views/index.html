@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard - San Giorgio</title>
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- Jquery and Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+    <!-- socket.io javascript library -->
+    <script src="../javascripts/socket.io.js"></script>
+
+    <!-- our own css -->
+    <link href="../stylesheets/index.css" rel="stylesheet" />
+
+    <!-- our own javascript -->
+    <script src="../javascripts/index.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">San Giorgio Bridge</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AlertSettings">Alert Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.google.com/maps?q=san+giorgio+bridge&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjTvc2ti7vxAhWUa8AKHX0WD-QQ_AUoAnoECAEQBA" target="_blank">Location</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bridge Design
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(1)">Design 1</a>
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(2)">Design 2</a>
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(3)">Design 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <input id="hdnAlertSettings" type="hidden" value="<%= AlertSettings %>" />
+
+    <div class="container-fluid pt-4 d-flex">
+        <div class="col-9 bridge">
+            <div id="Pile1" class="pile-toggle badge badge-success">Pile 1</div>
+            <div id="Pile2" class="pile-toggle badge badge-success">Pile 2</div>
+            <div id="Pile3" class="pile-toggle badge badge-success">Pile 3</div>
+            <div id="Pile4" class="pile-toggle badge badge-success">Pile 4</div>
+
+            <div id="PileDetails1" class="pile-details">
+                <table>
+                    <tr class="pressure text-success"><td>Pressure:</td><td><span class="sensorval">0</span>KPa</td></tr>
+                    <tr class="wind text-success"><td>Wind speed:</td><td><span class="sensorval">0</span>m/s</td></tr>
+                    <tr class="temperature text-success"><td>Air Temperature:</td><td><span class="sensorval">0</span>°C</td></tr>
+                    <tr class="humidity text-success"><td>Air Humidity:</td><td><span class="sensorval">0</span>%</td></tr>
+                    <tr class="rain text-success"><td>Rain:</td><td><span class="sensorval">0</span>mm/day</td></tr>
+                </table>
+            </div>
+            <div id="PileDetails2" class="pile-details">
+                <table>
+                    <tr class="pressure text-success"><td>Pressure:</td><td><span class="sensorval">0</span>KPa</td></tr>
+                    <tr class="wind text-success"><td>Wind speed:</td><td><span class="sensorval">0</span>m/s</td></tr>
+                    <tr class="temperature text-success"><td>Air Temperature:</td><td><span class="sensorval">0</span>°C</td></tr>
+                    <tr class="humidity text-success"><td>Air Humidity:</td><td><span class="sensorval">0</span>%</td></tr>
+                    <tr class="rain text-success"><td>Rain:</td><td><span class="sensorval">0</span>mm/day</td></tr>
+                </table>
+            </div>
+            <div id="PileDetails3" class="pile-details">
+                <table>
+                    <tr class="pressure text-success"><td>Pressure:</td><td><span class="sensorval">0</span>KPa</td></tr>
+                    <tr class="wind text-success"><td>Wind speed:</td><td><span class="sensorval">0</span>m/s</td></tr>
+                    <tr class="temperature text-success"><td>Air Temperature:</td><td><span class="sensorval">0</span>°C</td></tr>
+                    <tr class="humidity text-success"><td>Air Humidity:</td><td><span class="sensorval">0</span>%</td></tr>
+                    <tr class="rain text-success"><td>Rain:</td><td><span class="sensorval">0</span>mm/day</td></tr>
+                </table>
+            </div>
+            <div id="PileDetails4" class="pile-details">
+                <table>
+                    <tr class="pressure text-success"><td>Pressure:</td><td><span class="sensorval">0</span>KPa</td></tr>
+                    <tr class="wind text-success"><td>Wind speed:</td><td><span class="sensorval">0</span>m/s</td></tr>
+                    <tr class="temperature text-success"><td>Air Temperature:</td><td><span class="sensorval">0</span>°C</td></tr>
+                    <tr class="humidity text-success"><td>Air Humidity:</td><td><span class="sensorval">0</span>%</td></tr>
+                    <tr class="rain text-success"><td>Rain:</td><td><span class="sensorval">0</span>mm/day</td></tr>
+                </table>
+            </div>
+
+            <div class="legend">
+                <!--<h4 class="mb-4">Click on a pile to show real-time information</h4>-->
+                <h6>Legend</h6>
+
+                <span class="badge badge-success">Normal</span>
+                <span class="badge badge-warning">Warning</span>
+                <span class="badge badge-danger">Danger</span>
+            </div>
+        </div>
+        <div class="col-3 d-flex flex-wrap">
+            <div class="col-12 p-0 map">
+                <iframe class="w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27904.0641648606!2d8.871444576585358!3d44.42177035225652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d3435180c9d559%3A0x1749ff0d957a4bf3!2sSan%20Giorgio%20Bridge!5e0!3m2!1sen!2slb!4v1625422963158!5m2!1sen!2slb" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="col-12 p-0 mt-4">
+                <table>
+                    <tr><th class="pr-3">Coordinates</th><td>44°25′33″N 08°53′20″E</td></tr>
+                    <tr><th class="pr-3">Total length</th><td>1,067 metres</td></tr>
+                    <tr><th class="pr-3">Width</th><td>30.80 metres</td></tr>
+                    <tr><th class="pr-3">No. of lanes</th><td>4 (+2 emergency lanes)</td></tr>
+                    <tr><th class="pr-3">Architect</th><td>Renzo Piano</td></tr>
+                    <tr><th class="pr-3">Constructed by</th><td>Fincantieri Webuild</td></tr>
+                    <tr><th class="pr-3">Opened</th><td>4 August 2020</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

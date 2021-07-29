@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard - San Giorgio</title>
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- Jquery and Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+    <!-- our own css -->
+    <!-- our own javascript -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">San Giorgio Bridge</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AlertSettings">Alert Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.google.com/maps?q=san+giorgio+bridge&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjTvc2ti7vxAhWUa8AKHX0WD-QQ_AUoAnoECAEQBA" target="_blank">Location</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bridge Design
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(1)">Design 1</a>
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(2)">Design 2</a>
+                        <a class="dropdown-item" href="#" onclick="ChangeBridgeDesign(3)">Design 3</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid pt-4">
+        <div class="d-flex">
+            <img class="col-3 w-50" src="../images/sangiorgio1.jpg" />
+            <img class="col-3 w-50" src="../images/sangiorgio2.jpg" />
+        </div>
+
+        <div class="col-4 mt-3">
+            <h4>
+                San Giorgio bridge dashboard
+            </h4>
+
+            Designed and developed by:
+            <ul>
+                <li class="d-flex">
+                    Dorina Cadri
+                    <a class="ml-3" href="mailto:dorinacadri@gmail.com">
+                        dorinacadri@gmail.com
+                    </a>
+                </li>
+                <li class="d-flex">
+                    Mouhamad AlKarsifi
+                    <a class="ml-3" href="mailto:mhamad.alkarsifi@hotmail.com">
+                        mhamad.alkarsifi@hotmail.com
+                    </a>
+                </li>
+            </ul>
+
+            <h6 class="font-italic">Unige - IOT 2020/21 Project: Bridge Digital Twin</h6>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
